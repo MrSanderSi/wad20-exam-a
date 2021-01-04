@@ -1,12 +1,34 @@
 <template>
+    <div class="main-container">
+      <button>Newest to Oldest</button>
+      <div class="main-container">
+            <div class="post" v-for="data in entries" :key="data.id">
+                <span class="post-author">
+                    <span class="post-author-info">
+                        <h3>{{data.title}}</h3>
+                        <small>{{data.date}}</small>
+                    </span>
+                    <small>{{data.createTime}}</small>
+                </span>
+                <div class="post-image">
+                    <img :src="data.image"/>
+                </div>
+                <div class="post-text">
+                    <p>{{data.text}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'Entries',
-        props: {
-            entries: Array
-        }
+
+      name: 'Entries',
+      props: {
+          entries: Array
+      }
     }
 </script>
 
