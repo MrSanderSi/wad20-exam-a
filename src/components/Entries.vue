@@ -2,7 +2,9 @@
     <div class="main-container">
       <button>Newest to Oldest</button>
       <div class="main-container">
-            <div class="post" v-for="data in entries" :key="data.id">
+            <div class="post" v-for="data in entries.sort(function(a,b){
+                  return new Date(b.date) - new Date(a.date);
+                })" :key="data.id">
                 <span class="post-author">
                     <span class="post-author-info">
                         <h3>{{data.title}}</h3>
@@ -26,6 +28,7 @@
     export default {
 
       name: 'Entries',
+
       props: {
           entries: Array
       }
